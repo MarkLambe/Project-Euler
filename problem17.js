@@ -4,7 +4,6 @@ let get_num_chars_in_int = function(int){
   }
   let num = 0;
   if(int > 0 && int <= 19){
-    console.log(int + " a number between 1 and 19");
     switch(int){
       case 1:
       case 2:
@@ -55,46 +54,29 @@ let get_num_chars_in_int = function(int){
         num = 6;
         break;
       case 70:
-        num = 70;
+        num = 7;
         break;
     }
   }
   else if(int % 100 == 0 && int < 1000){
-    console.log(int + " a number divisible by 100 less than 1000");
-
-      num = get_num_chars_in_int(int / 100) + 7;
+    num = get_num_chars_in_int(int / 100) + 7;
   }
   else if(int < 100){
-    console.log(int + " a number less than 100 and not div by 100 or 1 -> 19");
-
     num = get_num_chars_in_int(parseInt(int / 10) * 10) + get_num_chars_in_int(int % 10);
   }
   else if(int > 100 && int < 1000){
-    console.log(int + " a number > 100 and < 1000 and not div by 100");
-    let a = parseInt(int / 100) * 100;
-    let b = int % 100;
-    console.log("a: "+a);
-    console.log("b: "+b);
-    num = get_num_chars_in_int(a) + 3 + get_num_chars_in_int(b);
+    num = get_num_chars_in_int(parseInt(int / 100) * 100) + 3 + get_num_chars_in_int(int % 100);
   }
   else{
-    console.log(int + " 1000");
-
-    //int == 1,000
     num = 11
   }
-  console.log("There are " + num + " characters in " + int);
-
   return num;
 }
 
 let total = 0;
 
-for(let i = 998; i <= 1000; i++){
-  console.log("\n\n\nChecking " + i);
-  let ans = get_num_chars_in_int(i); 
-  total += ans;
-  console.log("There are " + ans + " characters in " + i);
+for(let i = 1; i <= 1000; i++){
+  total += get_num_chars_in_int(i); 
 }
-
 console.log(total);
+
